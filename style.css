@@ -3,6 +3,21 @@ body{background:#ECEFF1;
 	box-sizing:border-box}
 *,:after,:before{box-sizing:inherit}
 img,ul{margin:0;padding:0}
+/** Menu */
+.menu {
+	height: 100px;
+	background-color: #0c2461;
+	width: 200px;
+}
+.menu a {
+	color: white;
+	text-decoration: none;
+	display: block; 
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 12px;
+	padding-top: 20px;
+}
 	
 form{max-width:750px;margin:50px auto;}
 h1{
