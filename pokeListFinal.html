@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Pokémon</title>
+	<meta name="description" content="site statique HTML, CSS3, javascript ES6">
+    <meta name="auteur " content="Catherine ">
+    <meta name="robots" content="NOINDEX, NOFOLLOW">
+
+	<link rel="icon" href="http://www.serebii.net/pokemongo/pokemon/025.png" />
+	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<form>
+		<h1>Pokédex !</h1>
+		<input type="text" placeholder="Pokémon recherché" />
+		<ul>
+			
+		</ul>
+	</form>
+
+	<a href="https://github.com/catherine57/Pokemon.git">Retourner au dépot Github</a>
+	<a href="#">Retourner au Portefolio</a>
+
+	<script>
+		const pokedex = 'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
+
+		const pokemons = [];
+
+		// recuperer donnée json avec promesse / then recupere données brutes que l'on transforme en données json / then push chaque pokemon 
+		fetch(pokedex)
+			.then(blob_binaire => blob_binaire.json())
+			.then(datapokemon => pokemons.push(...datapokemon.pokemon));
+
+		// filtrer pokemon par nom ou par type
+		function trouverPokemon(recherche, pokemons) {
+			return pokemons.filter(pokemon => {
+				const regex = new RegExp(recherche, 'gi'); // g recherche globale i en majuscule ou minuscule
+				return pokemon.name.match(regex) || pokemon.type.find(type => type.match(regex));
+			});
+		}
+		// Afiche la liste des pokémon
+		function afficherResultat() {
+			const tableauResultat = trouverPokemon(this.value, pokemons);
+			// pour chaque entrée du tableau
+			const html = tableauResultat.map(pokemon => {
+				return `
+					<li>
+					<img src="${pokemon.img}" alt="image du pokemon" width="42" height="42"/>
+					<span>${pokemon.name}</span>
+					<span>${pokemon.type}</span>
+
+					<span>${pokemon.height}</span>
+					<span>${pokemon.weight}</span>
+					</li>
+				`;
+
+			}).join('');
+
+			resultat.innerHTML = html;
+		}
+
+		const input = document.querySelector('input');
+		const resultat = document.querySelector('ul');
+
+		// ecoute les changement et affiche
+		input.addEventListener('change', afficherResultat);
+		//  a chaque frappe d'une touche
+		input.addEventListener('keyup', afficherResultat);
+
+	</script>
+
+</body>
+</html>
