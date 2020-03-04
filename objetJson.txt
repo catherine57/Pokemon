@@ -1,4 +1,4 @@
-//  objet json accéssible par 
+//  objet json accessible par 
 // https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
 
 {
@@ -13,7 +13,7 @@
       			"Grass",
       			"Poison"
     		],
-    		
+
     "height": "0.71 m",
     "weight": "6.9 kg",
     "candy": "Bulbasaur Candy",

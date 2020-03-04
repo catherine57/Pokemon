@@ -3,21 +3,30 @@ body{background:#ECEFF1;
 	box-sizing:border-box}
 *,:after,:before{box-sizing:inherit}
 img,ul{margin:0;padding:0}
-/** Menu */
-.menu {
-	height: 100px;
-	background-color: #0c2461;
-	width: 200px;
+
+/**Menu flex */
+.menu-container-flex{	
+	background-color: #8479c4;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	height: 75px;
+	flex-wrap: wrap;
 }
-.menu a {
-	color: white;
-	text-decoration: none;
-	display: block; 
-	text-align: center;
-	font-family: sans-serif;
-	font-size: 12px;
-	padding-top: 20px;
-}
+.logo{ flex-grow: 2; }
+.logo img{ max-height: 75px; }
+
+.github button,
+.portefolio button{
+	margin-right: 20px; 
+	cursor: pointer; 
+	transition-duration: 2.0s}
+.github button:hover,
+.portefolio button:hover{ background-color: #ffcb05 }
+.github button a,
+.portefolio button a{ text-decoration: none; }
+
 	
 form{max-width:750px;margin:50px auto;}
 h1{
@@ -25,7 +34,7 @@ h1{
 	font-family: 'Bangers', cursive;
 	color:#ffcb05;
 	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: #0071b9;
+	-webkit-text-stroke-color: #8479c4;
 	text-align: center;font-size: 151px;
 	margin:10px;
 	}
@@ -44,7 +53,7 @@ input{
 	font-size:36px;
 	padding:10px;
 	color:#1d1d1d;
-	border:5px solid #0071b9;
+	border:5px solid #8479c4;
 	border-width:0 0 5px;
 	outline:0;
 	box-shadow:0 5px 10px rgba(0,0,0,.2)
